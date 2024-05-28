@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckri8hnrkrp5q"]
+
+[ext_resource type="Texture2D" uid="uid://cqb88n60e2lsa" path="res://scenes/game/Dough/dough_gradient_texture.tres" id="1_y7boo"]
+[ext_resource type="Script" path="res://scenes/game/Dough/dough.gd" id="2_2v80d"]
+
+[node name="Dough" type="Polygon2D"]
+texture_repeat = 3
+position = Vector2(-7, 31)
+offset = Vector2(11, 60)
+texture = ExtResource("1_y7boo")
+texture_scale = Vector2(0.35, 0.55)
+polygon = PackedVector2Array(-68, 35, -114, 1, -119, -50, -92, -84, -46, -117, 73, -119, 130, -94, 153, -60, 140, -16, 96, 12, 36, 24)
+script = ExtResource("2_2v80d")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://byprtmlvtpejl"]
+
+[ext_resource type="Texture2D" uid="uid://bll0xsr77k8p8" path="res://_working/bg.png" id="1_45c6g"]
+[ext_resource type="Texture2D" uid="uid://bcc7g2ljmrf3s" path="res://_working/table.png" id="2_0jnrr"]
+[ext_resource type="Texture2D" uid="uid://jywyf0sigqc3" path="res://_working/kitty.png" id="3_468io"]
+[ext_resource type="PackedScene" uid="uid://ckri8hnrkrp5q" path="res://scenes/game/Dough/dough.tscn" id="4_380sk"]
+[ext_resource type="Script" path="res://scenes/game/player.gd" id="4_jhi4d"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="bgRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_right = 960.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_45c6g")
+
+[node name="tableRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_right = 960.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_0jnrr")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(338, 209)
+texture = ExtResource("3_468io")
+script = ExtResource("4_jhi4d")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-17, 32)
+
+[node name="Dough" parent="." instance=ExtResource("4_380sk")]
+position = Vector2(463, 272)

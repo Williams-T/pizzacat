@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmypx1nim1t4k"]
+
+[ext_resource type="Texture2D" uid="uid://bct0kaeod5sat" path="res://assets/logo.png" id="1_1v5ki"]
+[ext_resource type="Script" path="res://scenes/title/logo.gd" id="2_d35ua"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klo8m"]
+
+[node name="Control" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Logo" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_klo8m")
+icon = ExtResource("1_1v5ki")
+flat = true
+icon_alignment = 1
+script = ExtResource("2_d35ua")
+
+[node name="Spacer2" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="button_down" from="VBoxContainer/Logo" to="VBoxContainer/Logo" method="_on_button_down"]
